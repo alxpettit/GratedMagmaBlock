@@ -4,16 +4,16 @@
   "version": "${version}",
 
   "name": "Vanilla Scented Additions",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "description": "A mod that adds a block that creates a downward bubblestream, but you can stand on it without being hurt. More features to come!",
   "authors": [
     "Alexandria Pettit"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://blog.achu.xyz",
+    "sources": "https://github.com/alxpettit/VanillaScentedAdditions"
   },
 
-  "license": "CC0-1.0",
+  "license": "GNU GPLv3",
   "icon": "assets/vanillascented/icon.png",
 
   "environment": "*",
