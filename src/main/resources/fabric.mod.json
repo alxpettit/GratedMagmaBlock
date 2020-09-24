@@ -22,7 +22,7 @@
       "xyz.achu.mods.VanillaScentedAdditions"
     ]
   },
-  "mixins": [ ],
+  "mixins": ["vanillascented.mixins.json"],
 
   "depends": {
     "fabricloader": ">=0.7.4",
