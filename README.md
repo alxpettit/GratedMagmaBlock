@@ -1,9 +1,16 @@
-# Fabric Example Mod
+# Vanilla Scented Editions
 
-## Setup
+Simple vanilla-themed blocks meant to mesh well with a vanilla-oriented modpack.
 
-For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
+Blocks added:
 
-## License
+Grated Magma Block
 
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+_a block that lets you make downward bubblestreams that are safe to ride in!_
+
+
+[](assets/900x900_grated_magma.png)
+
+Crafting recipe:
+
+[](assets/crafting_grated_magma.png)
