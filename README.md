@@ -9,8 +9,8 @@ Grated Magma Block
 _a block that lets you make downward bubblestreams that are safe to ride in!_
 
 
-[](assets/900x900_grated_magma.png)
+![](assets/900x900_grated_magma.png)
 
 Crafting recipe:
 
-[](assets/crafting_grated_magma.png)
+![](assets/crafting_grated_magma.png)
