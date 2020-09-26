@@ -13,11 +13,11 @@
       "item": "minecraft:iron_bars"
     },
     "M": {
-      "item": "minecraft:magma_block"
+      "item": "minecraft:soul_sand"
     }
   },
   "result": {
-    "item": "vanillascented:grated_magma_block",
+    "item": "vanillascented:grated_soul_sand",
     "count": 1
   }
 }

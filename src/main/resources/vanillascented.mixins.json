@@ -4,9 +4,9 @@
   "package": "xyz.achu.mods.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-  ],
-  "client": [
-    "BubbleColumnBlockMixin"
+    "BubbleColumnBlockMixin",
+    "NetherWartBlockMixin",
+    "IdentifierMixin"
   ],
   "injectors": {
     "defaultRequire": 1
