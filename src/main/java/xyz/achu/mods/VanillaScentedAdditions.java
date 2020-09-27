@@ -32,10 +32,12 @@ public class VanillaScentedAdditions implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		Registry.register(Registry.BLOCK, new Identifier("vanillascented", "grated_magma"), GRATED_MAGMA_BLOCK);
-		Registry.register(Registry.ITEM, new Identifier("vanillascented", "grated_magma"), new BlockItem(GRATED_MAGMA_BLOCK, new Item.Settings().group(ItemGroup.MISC)));
+		Registry.register(Registry.BLOCK, new Identifier("vanillascented", "grated_magma_block"), GRATED_MAGMA_BLOCK);
+		Registry.register(Registry.ITEM, new Identifier("vanillascented", "grated_magma_block"), new BlockItem(GRATED_MAGMA_BLOCK, new Item.Settings().group(ItemGroup.MISC)));
+
 		Registry.register(Registry.BLOCK, new Identifier("vanillascented", "grated_soul_sand"), GRATED_SOUL_SAND_BLOCK);
 		Registry.register(Registry.ITEM, new Identifier("vanillascented", "grated_soul_sand"), new BlockItem(GRATED_SOUL_SAND_BLOCK, new Item.Settings().group(ItemGroup.MISC)));
+
 	}
 
 }

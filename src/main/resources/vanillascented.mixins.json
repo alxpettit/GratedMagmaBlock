@@ -6,7 +6,6 @@
   "mixins": [
     "BubbleColumnBlockMixin",
     "NetherWartBlockMixin",
-    "IdentifierMixin"
   ],
   "injectors": {
     "defaultRequire": 1

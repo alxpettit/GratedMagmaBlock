@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "vanillascented:grated_magma"
+          "name": "vanillascented:grated_magma_block"
         }
       ],
       "conditions": [
