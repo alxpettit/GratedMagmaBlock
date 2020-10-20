@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#W#",
+    "S#S",
+    "#W#"
+  ],
+  "key": {
+    "W": {
+      "tag": "minecraft:wool"
+    },
+    "S": {
+      "item": "minecraft:iron_bars"
+    },
+    "#": {
+      "item": "minecraft:slime_ball"
+    }
+  },
+  "result": {
+    "item": "vanillascented:shock_absorber",
+    "count": 1
+  }
+}

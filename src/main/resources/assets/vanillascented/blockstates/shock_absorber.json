@@ -1,0 +1,6 @@
+{
+    "variants": {
+      "collapsed=false": { "model": "vanillascented:block/shock_absorber_normal" },
+      "collapsed=true": { "model": "vanillascented:block/shock_absorber_collapsed" }
+    }
+}

@@ -1,0 +1,20 @@
+{
+  "textures": {
+    "end": "minecraft:block/white_wool",
+    "side": "vanillascented:block/shock_absorber_collapsed_sides"
+  },
+  "parent": "block/block",
+  "elements": [
+    {   "from": [ 0, 0, 0 ],
+      "to": [ 16, 8, 16 ],
+      "faces": {
+        "down":  { "texture": "#end", "cullface": "down" },
+        "up":    { "texture": "#end", "cullface": "up" },
+        "north": { "texture": "#side", "cullface": "north" },
+        "south": { "texture": "#side", "cullface": "south" },
+        "west":  { "texture": "side", "cullface": "west" },
+        "east":  { "texture": "side", "cullface": "east" }
+      }
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "lower_shock_absorber": {
+    "subtitle": "subtitles.vanillascented.lower_shock_absorber",
+    "sounds": [
+      "vanillascented:lower_shock_absorber"
+    ]
+  },
+  "raise_shock_absorber": {
+    "subtitle": "subtitles.vanillascented.raise_shock_absorber",
+    "sounds": [
+      "vanillascented:raise_shock_absorber"
+    ]
+  }
+}

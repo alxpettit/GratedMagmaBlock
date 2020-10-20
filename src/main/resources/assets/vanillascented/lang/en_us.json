@@ -1,4 +1,7 @@
 {
  "block.vanillascented.grated_magma_block": "Grated Magma Block",
- "block.vanillascented.grated_soul_sand": "Grated Soul Sand Block"
+ "block.vanillascented.grated_soul_sand": "Grated Soul Sand Block",
+ "block.vanillascented.shock_absorber": "Shock Absorber",
+ "subtitles.vanillascented.lower_shock_absorber": "Shock absorber collapses",
+ "subtitles.vanillascented.raise_shock_absorber": " Shock absorber expands"
 }

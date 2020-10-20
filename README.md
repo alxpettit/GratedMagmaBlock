@@ -15,6 +15,9 @@ Crafting recipe:
 
 ![](assets/crafting_grated_magma.png)
 
+
+Now with a NEW fall damage canceling block, textured by my bestie Nicole! :3
+
 Things I'm considering adding next:
 
 * Hydration block
