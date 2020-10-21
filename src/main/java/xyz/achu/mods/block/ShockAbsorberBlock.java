@@ -1,11 +1,14 @@
 package xyz.achu.mods.block;
 
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.ShapeContext;
+import net.minecraft.block.TransparentBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvent;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.util.math.BlockPos;
@@ -15,14 +18,12 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
-import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Random;
 
 import static xyz.achu.mods.VanillaScentedAdditions.SOUND_EVENT_LOWER_SHOCK_ABSORBER;
 import static xyz.achu.mods.VanillaScentedAdditions.SOUND_EVENT_RAISE_SHOCK_ABSORBER;
 
-// TODO: fix culling when this block is adjacent to itself
 // TODO: fix culling when this block is adjacent to itself
 
 @SuppressWarnings("deprecation") // mojang sthap
@@ -38,8 +39,6 @@ public class ShockAbsorberBlock extends TransparentBlock {
     protected static final Box ENTITY_SCANNING_BOX =
             new Box(0.0D, 0.0D, 0.0D, 1.0D, 1.0D, 1.0D);
 
-    // Current shape
-    protected static VoxelShape SHAPE;
     // Property for tracking whether we are collapsed or not
     public static final BooleanProperty COLLAPSED_STATE = BooleanProperty.of("collapsed");
 
@@ -47,7 +46,6 @@ public class ShockAbsorberBlock extends TransparentBlock {
         super(settings);
         // Set our default state
         setDefaultState(getStateManager().getDefaultState().with(COLLAPSED_STATE, false));
-        SHAPE = NORMAL_SHAPE; // By default our shape is normal
     }
 
     ////////////// OVERRIDE STUFFS /////////////////
@@ -82,13 +80,13 @@ public class ShockAbsorberBlock extends TransparentBlock {
     // Let game know our shape.
     // Stolen from snow code :)
     @Override
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) { return SHAPE; }
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) { return getShape(state); }
     @Override
-    public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) { return SHAPE; }
+    public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) { return getShape(state);}
     @Override
-    public VoxelShape getSidesShape(BlockState state, BlockView world, BlockPos pos) { return SHAPE; }
+    public VoxelShape getSidesShape(BlockState state, BlockView world, BlockPos pos) { return getShape(state); }
     @Override
-    public VoxelShape getVisualShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) { return SHAPE; }
+    public VoxelShape getVisualShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) { return getShape(state); }
 
     @Override
     public boolean hasSidedTransparency(BlockState state) { return true; }
@@ -122,6 +120,10 @@ public class ShockAbsorberBlock extends TransparentBlock {
 
     /////////////////// METHODS NOT PRESENT IN PARENT CLASS ///////////////////
 
+    protected VoxelShape getShape(BlockState state) {
+        return state.get(COLLAPSED_STATE) ? COLLAPSED_SHAPE : NORMAL_SHAPE;
+    }
+
     // Check if living entities are above us
     protected boolean noEntitiesAbove(World world, BlockPos pos) {
         Box box = ENTITY_SCANNING_BOX.offset(pos);
@@ -133,15 +135,14 @@ public class ShockAbsorberBlock extends TransparentBlock {
         if (state.get(COLLAPSED_STATE) == is_collapsed) {
             return;
         }
-        SHAPE = is_collapsed ? COLLAPSED_SHAPE : NORMAL_SHAPE;
         BlockState newState = state.with(COLLAPSED_STATE, is_collapsed);
         world.scheduleBlockRerenderIfNeeded(pos, state, newState);
         world.setBlockState(pos, newState);
         world.updateNeighborsAlways(pos, this);
-        if (is_collapsed) {
-            world.playSound(null, pos, SOUND_EVENT_LOWER_SHOCK_ABSORBER, SoundCategory.BLOCKS, 1F, 1F);
-        } else {
-            world.playSound(null, pos, SOUND_EVENT_RAISE_SHOCK_ABSORBER, SoundCategory.BLOCKS, 1F, 1F);
+        if (!world.isClient()) {
+            world.playSound((PlayerEntity)null, pos.getX(), pos.getY(), pos.getZ(),
+                    state.get(COLLAPSED_STATE) ? SOUND_EVENT_LOWER_SHOCK_ABSORBER : SOUND_EVENT_RAISE_SHOCK_ABSORBER,
+                    SoundCategory.BLOCKS, 1.0F, 1.0F);
         }
     }
 
