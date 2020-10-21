@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.block.TransparentBlock;
+import net.minecraft.client.sound.SoundInstance;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -140,7 +141,7 @@ public class ShockAbsorberBlock extends TransparentBlock {
         world.setBlockState(pos, newState);
         world.updateNeighborsAlways(pos, this);
         if (!world.isClient()) {
-            world.playSound((PlayerEntity)null, pos.getX(), pos.getY(), pos.getZ(),
+                    world.playSound((PlayerEntity)null, pos.getX(), pos.getY(), pos.getZ(),
                     state.get(COLLAPSED_STATE) ? SOUND_EVENT_LOWER_SHOCK_ABSORBER : SOUND_EVENT_RAISE_SHOCK_ABSORBER,
                     SoundCategory.BLOCKS, 1.0F, 1.0F);
         }

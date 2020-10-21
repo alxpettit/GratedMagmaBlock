@@ -83,6 +83,9 @@ public class VanillaScentedAdditions implements ModInitializer {
 	}
 
 	static SoundEvent createSound(String path) {
-		return new SoundEvent(new Identifier(MODID + ":" + path));
+		Identifier id = new Identifier(MODID + ":" + path);
+		SoundEvent event = new SoundEvent(id);
+		Registry.register(Registry.SOUND_EVENT, id, event);
+		return event;
 	}
 }
